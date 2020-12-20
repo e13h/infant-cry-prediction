@@ -1,0 +1,16 @@
+# conda environment
+
+name: cry
+channels:
+  - pytorch
+dependencies:
+  - cudatoolkit=10.1
+  - python=3.6
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pandas
+  - numpy
+  - tqdm
+  - matplotlib
+  - scikit-learn
