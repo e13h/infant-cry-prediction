@@ -1,0 +1,3 @@
+[submodule "donateacry-corpus"]
+	path = donateacry-corpus
+	url = https://github.com/gveres/donateacry-corpus.git
