@@ -15,7 +15,7 @@ CHECKPOINT_DIR = './checkpoints/'
 
 clean_dirs = ['./donateacry-corpus/donateacry_corpus_cleaned_and_updated_data/']
 clean_train_data = DonateACryDataset(clean_dirs, train=True, drop_hungry=0.75)
-clean_test_data = DonateACryDataset(clean_dirs, train=False, drop_hungry=0.75)
+clean_test_data = DonateACryDataset(clean_dirs, train=False)
 
 assert clean_train_data.target_decoding == clean_test_data.target_decoding
 assert torch.cuda.is_available()
