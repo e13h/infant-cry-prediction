@@ -49,12 +49,3 @@ print('distribution of preds:', np.unique(test_preds, return_counts=True))
 
 with open('metrics.pkl', 'wb') as f:
     pickle.dump(metrics, f)
-
-# filepath = 'hazel-unknown.m4a'
-# print(filepath)
-# waveform, sample_rate = open_audio_file(filepath)
-# plot_waveform(waveform)
-# display(Audio(waveform, rate=sample_rate))
-
-# saved_model = load_checkpoint('mod-checkpoint-35_epochs.pth').cuda()
-# prediction = test_a_waveform(waveform, saved_model, clean_train_data.target_decoding)
