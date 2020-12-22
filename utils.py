@@ -131,8 +131,7 @@ def plot_waveform(waveform):
 
 def convert_file_to_wav(path):
     new_path = '.'.join(path.split('.')[:-1]) + '.wav'
-    subprocess.run('ffmpeg', '-y', '-i', path, new_path, '-hide_banner')
-    # !ffmpeg -y -i {path} {new_path} -hide_banner > /dev/null 2>&1
+    subprocess.run(['ffmpeg', '-y', '-i', path, new_path, '-hide_banner'])
     return new_path
 
 
