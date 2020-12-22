@@ -7,7 +7,7 @@ import pickle
 
 from dataset import DonateACryDataset
 from network import RNN
-from utils import load_checkpoint, train, open_audio_file, plot_waveform, test_a_waveform
+from utils import load_checkpoint, train
 
 
 CHECKPOINT_DIR = './checkpoints/'
