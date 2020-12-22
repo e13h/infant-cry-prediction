@@ -67,7 +67,7 @@ def evaluate(model, test_data_loader, criterion, device, bar):
 
 
 ## train a waveform sequence at a time
-def train(train_data_loader, test_data_loader, num_epochs, model, optimizer, criterion, device, checkpoint_dir=GOOGLE_COLAB_CHECKPOINT_DIR):
+def train(train_data_loader, test_data_loader, num_epochs, model, optimizer, criterion, device, checkpoint_dir=GOOGLE_COLAB_CHECKPOINT_DIR, save=True):
     bar = tqdm(total=num_epochs*(len(train_data_loader)+len(test_data_loader)), position=0, leave=True, desc='training')
     eval_losses, eval_accuracies, eval_preds = [], [], []
     train_losses, train_accuracies = [[] for x in range(num_epochs)], [[] for x in range(num_epochs)]
@@ -93,7 +93,8 @@ def train(train_data_loader, test_data_loader, num_epochs, model, optimizer, cri
         eval_preds.append(eval_pred)
         bar.set_description(f'epoch {epoch+1}/{num_epochs}, loss: {np.array(eval_loss).mean():.3f}')
         model.num_epochs_trained += 1
-        save_checkpoint(model, checkpoint_dir, path=f'checkpoint-{model.num_epochs_trained}_epochs.pth')
+        if save is True:
+            save_checkpoint(model, checkpoint_dir, path=f'checkpoint-{model.num_epochs_trained}_epochs.pth')
 
     return train_losses, eval_losses, train_accuracies, eval_accuracies, eval_preds
 
