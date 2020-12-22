@@ -154,4 +154,6 @@ def test_a_waveform(waveform, model, target_decoding):
     output_dist, _ = model(waveform.unsqueeze(0))
     output = output_dist.mean(axis=0).argmax().item()
     output_label = target_decoding[output]
-    return output_label, output_dist.mean(axis=0).squeeze().cpu().detach().numpy()
+    output_dist = output_dist.mean(axis=0).squeeze().cpu().detach().numpy()
+    output_dist_mapping = {label: output_dist[i] for i, label in target_decoding.items()}
+    return output_label, output_dist_mapping
